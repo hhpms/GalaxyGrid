@@ -30,6 +30,9 @@ const TILE_EMOJIS = [
 // Pick which question tile becomes "Star Burst" (bonus question)
 const STAR_BURST_INDEX = 5; // easy to change: 0–8
 
+//Set class size number for Pick Random student button
+const studentCount = 26;   
+
 // Your categories + questions.
 // Each category has a name and an array of {q, a}.
 const CATEGORIES = [
@@ -72,6 +75,10 @@ const CATEGORIES = [
  */
 const boardEl = document.getElementById("board");
 const resetBtn = document.getElementById("resetBtn");
+
+const pickStudentBtn = document.getElementById("pickStudentBtn");
+const studentResult = document.getElementById("studentResult");
+
 
 const starburstOverlayEl = document.getElementById("starburstOverlay");
 const qaOverlayEl = document.getElementById("qaOverlay");
@@ -261,10 +268,26 @@ function resetBoard() {
   buildBoard();
 }
 
+function pickRandomStudent(){
+  if (studentCount <= 0) return;
+
+  const number = Math.floor(Math.random() * studentCount) + 1;
+
+  studentResult.textContent = `Student #${number}`;
+  studentResult.classList.add("flash");
+
+  setTimeout(() => {
+    studentResult.classList.remove("flash");
+  }, 400);
+}
+
+
 /* ---------- Event wiring ---------- */
 showAnswerBtn.addEventListener("click", toggleAnswer);
 exitBtn.addEventListener("click", closeQuestionModalAndConsumeTile);
 resetBtn.addEventListener("click", resetBoard);
+pickStudentBtn.addEventListener("click", pickRandomStudent);
+
 
 // Click outside modal closes & consumes tile (optional convenience)
 qaOverlayEl.addEventListener("click", (e) => {
