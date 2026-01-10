@@ -1,5 +1,5 @@
 # GalaxyGrid
-A quiz style website that allows students to choose topics to answer questions
+A quiz style website that allows students to choose topics to answer questions. You can download the full repository and open the index.html in a web browser to access the game. Update the questions in the script.js file at the top in the "TEACHER EDIT SECTION". 
 
 ## Image Credit
 Background image: 
