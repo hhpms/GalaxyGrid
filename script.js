@@ -21,40 +21,40 @@ const TILE_EMOJIS = [
   "🪐", // Ringed Planet
   "🚀", // Rocket
   "🛰️", // Satellite
-  "🧑‍🚀", // Astronaut
+  "👩🏽‍🚀", // Astronaut
   "🔭", // Telescope
   "☄️", // Comet
   "🌍", // Earth
 ];
 
 // Pick which question tile becomes "Star Burst" (bonus question)
-const STAR_BURST_INDEX = 1; // easy to change: 0–8
+const STAR_BURST_INDEX = 5; // easy to change: 0–8
 
 // Your categories + questions.
-// Make it obvious: each category has a name and an array of {q, a}.
+// Each category has a name and an array of {q, a}.
 const CATEGORIES = [
   {
-    name: "Space Science",
+    name: "J-O-B 🤑",
     qa: [
-      { q: "What is the name of our galaxy?", a: "The Milky Way." },
-      { q: "What force keeps planets in orbit around the Sun?", a: "Gravity." },
-      { q: "What is a comet mostly made of?", a: "Ice, dust, and rocky material." },
+      { q: "What is a job?", a: "Work that you are paid for." },
+      { q: "What is a career?", a: "A series of jobs. A long-term professional journey." },
+      { q: "What are the three main skills (or programs) we will be learning in this class?", a: "Word Processing (Google Docs), Spreadsheets (Google Sheets), and Multimedia Presentations (Google Slides)" },
     ],
   },
   {
-    name: "Computer Science",
+    name: "Organized & Working!",
     qa: [
-      { q: "What does 'CPU' stand for?", a: "Central Processing Unit." },
-      { q: "In binary, what does 101 equal in base 10?", a: "5." },
-      { q: "What is an algorithm?", a: "A step-by-step set of instructions to solve a problem." },
+      { q: "What does CTSO stand for?", a: "Career and Technical Student Organization" },
+      { q: "This is an experience where your school sets up a work internship for you.", a: "Work-Based Learning (WBL)" },
+      { q: "Adults can join societies, unions, civic organizations, and standards organizations. What are these called?", a: "Professional Organizations" },
     ],
   },
   {
-    name: "Business / IT",
+    name: "All hail Ms. Donaldson 🫡",
     qa: [
-      { q: "What is a 'budget'?", a: "A plan for how money will be earned and spent." },
-      { q: "What does 'profit' mean?", a: "Money earned after costs/expenses are subtracted." },
-      { q: "Name one way to stay safe online.", a: "Use strong passwords, enable MFA, avoid suspicious links, etc." },
+      { q: "This is something you can only do next to the trash can or three feet away from your desk.", a: "Eat" },
+      { q: "What are the four steps you must do before leaving my classroom?", a: "1) Sign out. 2) Hang your headphones up. 3) Push your chair in. 4) Stand behind your chair and wait." },
+      { q: "What are two things you are not allowed to touch in my classroom?", a: "Other people and other people's computers!" },
     ],
   },
 ];
@@ -108,7 +108,7 @@ function validateConfig() {
 function buildBoard() {
   boardEl.innerHTML = "";
 
-  // Category headers (3 columns)
+  // Category headers
   for (let col = 0; col < 3; col++) {
     const header = document.createElement("div");
     header.className = "category";
@@ -116,41 +116,43 @@ function buildBoard() {
     boardEl.appendChild(header);
   }
 
-  // Question tiles: 3 rows * 3 cols = 9 tiles
+  // Question tiles
   let tileIndex = 0;
 
   for (let row = 0; row < 3; row++) {
     for (let col = 0; col < 3; col++) {
+
+      const currentIndex = tileIndex; // ✅ capture a stable value
+
       const tile = document.createElement("button");
       tile.type = "button";
       tile.className = "tile";
-      tile.dataset.index = String(tileIndex);
+      tile.dataset.index = String(currentIndex);
 
       const emoji = document.createElement("div");
       emoji.className = "emoji";
-      emoji.textContent = TILE_EMOJIS[tileIndex] ?? "✨";
+      emoji.textContent = TILE_EMOJIS[currentIndex] ?? "✨";
       tile.appendChild(emoji);
 
-      // Mark the Star Burst tile visually (subtle border)
-      if (tileIndex === STAR_BURST_INDEX) {
+      if (currentIndex === STAR_BURST_INDEX) {
         tile.classList.add("starburst");
         tile.title = "Star Burst tile!";
       } else {
         tile.title = "Click to reveal question";
       }
 
-      // If already used (after reset? normally false), render as used
-      if (used[tileIndex]) {
+      if (used[currentIndex]) {
         tile.classList.add("used");
       }
 
-      tile.addEventListener("click", () => onTileClick(tileIndex));
+      tile.addEventListener("click", () => onTileClick(currentIndex)); // ✅ use currentIndex
 
       boardEl.appendChild(tile);
       tileIndex++;
     }
   }
 }
+
 
 function getTileQuestion(tileIndex) {
   // tileIndex mapping to row/col
@@ -189,7 +191,7 @@ function showStarburstThenQuestion(tileIndex) {
     starburstOverlayEl.classList.remove("show");
     starburstOverlayEl.setAttribute("aria-hidden", "true");
     openQuestionModal(tileIndex);
-  }, 1500);
+  }, 2500);
 }
 
 function onTileClick(tileIndex) {

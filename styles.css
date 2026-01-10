@@ -77,17 +77,6 @@ body{
   gap: 8px;
 }
 
-.badge{
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  padding: 8px 10px;
-  font-size: 12px;
-  color: var(--muted);
-  background: rgba(255,255,255,0.06);
-  border: 1px solid rgba(255,255,255,0.10);
-  border-radius: 999px;
-}
 
 /* ---------- Board ---------- */
 .board{
@@ -104,6 +93,7 @@ body{
   border: 1px solid rgba(255,255,255,0.14);
   font-weight: 700;
   letter-spacing: 0.3px;
+  font-size: clamp(18px, 2.5vw, 28px);
 }
 
 /* Each question tile */
@@ -136,14 +126,6 @@ body{
   filter: drop-shadow(0 10px 14px rgba(0,0,0,0.35));
 }
 
-/* Star Burst tile hint */
-.tile.starburst{
-  border-color: rgba(255, 220, 120, 0.55);
-  box-shadow: 0 16px 40px rgba(0,0,0,0.50);
-}
-.tile.starburst .emoji{
-  filter: drop-shadow(0 12px 18px rgba(255, 220, 120, 0.15));
-}
 
 /* Used tile becomes blank + non-clickable */
 .tile.used{
@@ -235,8 +217,8 @@ body{
 }
 
 .question-text{
-  font-size: 20px;
-  line-height: 1.35;
+  font-size: clamp(28px, 5vw, 48px);
+  line-height: 1.25;
 }
 
 .answer-block{
@@ -256,8 +238,8 @@ body{
 }
 
 .answer-text{
-  font-size: 18px;
-  line-height: 1.35;
+  font-size: clamp(24px, 4.5vw, 42px);
+  line-height: 1.25;
 }
 
 .modal-actions{
