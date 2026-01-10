@@ -1,0 +1,76 @@
+<!-- index.html -->
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>GalaxyGrid</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="topbar">
+    <h1 class="title">GalaxyGrid</h1>
+    <p class="subtitle">Click a tile to reveal a question. Each tile can be used once.</p>
+  </header>
+
+  <main class="wrap">
+    <section class="panel">
+      <div class="panel-row">
+        <div class="legend">
+          <span class="badge">🌟 = Star Burst tile</span>
+          <span class="badge">🟦 = Unused tile</span>
+          <span class="badge">⬜ = Used tile</span>
+        </div>
+
+        <button id="resetBtn" class="btn btn-ghost" type="button" title="Reset the board">
+          Reset Board
+        </button>
+      </div>
+
+      <!-- Game board (built by JS) -->
+      <div id="board" class="board" aria-label="GalaxyGrid board"></div>
+    </section>
+  </main>
+
+  <!-- Star Burst overlay -->
+  <div id="starburstOverlay" class="starburst-overlay" aria-hidden="true">
+    <div class="starburst-text">
+      <div class="starburst-title">STAR BURST!</div>
+      <div class="starburst-subtitle">Wager / bonus question 🚀</div>
+    </div>
+  </div>
+
+  <!-- Question modal overlay -->
+  <div id="qaOverlay" class="overlay" aria-hidden="true">
+    <div class="modal" role="dialog" aria-modal="true" aria-labelledby="questionTitle">
+      <div class="modal-top">
+        <div class="modal-meta">
+          <div id="questionTitle" class="modal-title">Question</div>
+          <div id="questionMeta" class="modal-meta-line"></div>
+        </div>
+
+        <button id="exitBtn" class="btn btn-danger" type="button" aria-label="Exit question">
+          Exit ✕
+        </button>
+      </div>
+
+      <div class="modal-body">
+        <div id="questionText" class="question-text"></div>
+
+        <div id="answerBlock" class="answer-block hidden">
+          <div class="answer-label">Answer</div>
+          <div id="answerText" class="answer-text"></div>
+        </div>
+      </div>
+
+      <div class="modal-actions">
+        <button id="showAnswerBtn" class="btn btn-primary" type="button">
+          Show Answer
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
