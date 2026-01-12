@@ -28,7 +28,7 @@ const TILE_EMOJIS = [
 ];
 
 // Pick which question tile becomes "Star Burst" (bonus question)
-const STAR_BURST_INDEX = 5; // easy to change: 0–8
+const STAR_BURST_INDEX = 3; // easy to change: 0–8
 
 //Set class size number for Pick Random student button
 const studentCount = 26;   
@@ -37,19 +37,19 @@ const studentCount = 26;
 // Each category has a name and an array of {q, a}.
 const CATEGORIES = [
   {
-    name: "J-O-B 🤑",
+    name: "Solving Problems",
     qa: [
-      { q: "What is a job?", a: "Work that you are paid for." },
-      { q: "What is a career?", a: "A series of jobs. A long-term professional journey." },
-      { q: "What are the three main skills (or programs) we will be learning in this class?", a: "Word Processing (Google Docs), Spreadsheets (Google Sheets), and Multimedia Presentations (Google Slides)" },
+      { q: "What are the four steps of the problem solving process? (DPTR)", a: "Define, Prepare, Try, Reflect" },
+      { q: "What does 'decomposing' a problem mean?", a: "Breaking it into to smaller, more manageable parts (or 'subcomponents')." },
+      { q: "What is troubleshooting?", a: "Problem solving issues with technology." },
     ],
   },
   {
-    name: "Organized & Working!",
+    name: "Techy",
     qa: [
-      { q: "What does CTSO stand for?", a: "Career and Technical Student Organization" },
-      { q: "This is an experience where your school sets up a work internship for you.", a: "Work-Based Learning (WBL)" },
-      { q: "Adults can join societies, unions, civic organizations, and standards organizations. What are these called?", a: "Professional Organizations" },
+      { q: "What is the screen connected to your lab computer called?", a: "A monitor" },
+      { q: "True or False: Your computer and your monitor are the same device.", a: "False: on desktop computers, the monitor and the computer are separate." },
+      { q: "If your computer is not turning on, what's the first thing you should do?", a: "Check that both the computer and the monitor are actually on." },
     ],
   },
   {
