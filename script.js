@@ -5,7 +5,7 @@
  * 1) Edit CATEGORIES to change categories, questions, and answers.
  * 2) Choose which tile is the Star Burst tile by setting STAR_BURST_INDEX (0–8).
  *    Index order is left-to-right, top-to-bottom across the 3x3 question tiles:
- *    Row 1: 0 1 2
+ *    Row 1: 0 1 2 
  *    Row 2: 3 4 5
  *    Row 3: 6 7 8
  *
