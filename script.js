@@ -24,7 +24,7 @@ const TILE_EMOJIS = [
   "👩🏽‍🚀", // Astronaut
   "🔭", // Telescope
   "☄️", // Comet
-  "🌍", // Earth
+  "🌍", // Earth 
 ];
 
 // Pick which question tile becomes "Star Burst" (bonus question)
